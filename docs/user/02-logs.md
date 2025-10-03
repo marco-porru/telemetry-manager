@@ -10,7 +10,7 @@ You can configure the log agent with external systems using runtime configuratio
 
 The feature is optional, if you don't want to use the Logs feature, simply don't set up a LogPipeline.
 
-<!--- custom output/unsupported mode is not part of Help Portal docs --->
+<!-- custom output/unsupported mode is not part of Help Portal docs -->
 If you want more flexibility than provided by the proprietary protocol, you can run the agent in the [unsupported mode](#unsupported-mode), using the full vendor-specific output options of Fluent Bit. If you need advanced configuration options, you can also bring your own log agent.
 
 ## Prerequisites
@@ -46,7 +46,7 @@ The LogPipeline resource is watched by Telemetry Manager, which is responsible f
 If a LogPipeline is defined, a DaemonSet is deployed acting as an agent. The agent is based on [Fluent Bit](https://fluentbit.io/) and encompasses the collection of application logs provided by the Kubernetes container runtime. The agent sends all data to the configured backend.
 
 ### Pipelines
-<!--- Pipelines is not part of Help Portal docs --->
+<!-- Pipelines is not part of Help Portal docs -->
 Fluent Bit comes with a pipeline concept, which supports a flexible combination of inputs with outputs and filtering in between. For details, see [Fluent Bit: Output](https://docs.fluentbit.io/manual/data-pipeline/outputs).
 Kyma's Telemetry module brings a predefined setup of the Fluent Bit DaemonSet and a base configuration, which assures that the application logs of the workloads in the cluster are processed reliably and efficiently. Additionally, the Telemetry module provides a Kubernetes API called `LogPipeline` to configure outputs with some filtering capabilities.
 
@@ -92,7 +92,7 @@ spec:
 An output is a data destination configured by a [Fluent Bit output](https://docs.fluentbit.io/manual/pipeline/outputs) of the relevant type. The LogPipeline supports the following output types:
 
 - **http**, which sends the data to the specified HTTP destination. The output is designed to integrate with a [Fluentd HTTP Input](https://docs.fluentd.org/input/http), which opens up a huge ecosystem of integration possibilities.
-<!--- custom output/unsupported mode is not part of Help Portal docs --->
+<!-- custom output/unsupported mode is not part of Help Portal docs -->
 - **custom**, which supports the configuration of any destination in the Fluent Bit configuration syntax.
 
 > [!WARNING]
@@ -141,7 +141,7 @@ spec:
     ...
 ```
 
-<!--- custom filters/unsupported mode is not part of Help Portal docs --->
+<!-- custom filters/unsupported mode is not part of Help Portal docs -->
 
 If filtering by namespace and container is not enough, use [Fluent Bit filters](https://docs.fluentbit.io/manual/data-pipeline/filters) to enrich logs for filtering by attribute, or to drop whole lines.
 
@@ -285,7 +285,7 @@ stringData:
   TLS_KEY: ...
 ```
 
-<!--- custom output/unsupported mode is not part of Help Portal docs --->
+<!-- custom output/unsupported mode is not part of Help Portal docs -->
 To use data provided by the Kubernetes Secrets in a `custom` output definition, use placeholder expressions for the data provided by the Secret, then specify the actual mapping to the Secret keys in the **variables** section, like in the following example:
 
 ```yaml
@@ -492,11 +492,11 @@ To detect and fix such situations, check the [pipeline status](./resources/02-lo
 - **Multiple LogPipeline Support**: The maximum amount of LogPipeline resources is 5.
 
 ### Unsupported Mode
-<!--- unsupported mode is not part of Help Portal docs --->
+<!-- unsupported mode is not part of Help Portal docs -->
 The `unsupportedMode` attribute of a LogPipeline indicates that you are using a `custom` filter and/or `custom` output. The Kyma team does not provide support for a custom configuration.
 
 ### Fluent Bit Plugins
-<!--- Fluent Bit Plugins is not part of Help Portal docs --->
+<!-- Fluent Bit Plugins is not part of Help Portal docs -->
 
 You cannot enable the following plugins, because they potentially harm the stability:
 
